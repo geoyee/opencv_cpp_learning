@@ -63,3 +63,27 @@ Mat iMat::ergodicInv2(Mat& img) {
 	}
 	return im;
 }
+
+
+Mat iMat::add(Mat &img, int value) {
+	 Mat im = copy(img);
+	 return im + value;
+}
+
+
+static void callBack(int pos, void* usrdata) {
+	Mat im = *(Mat*)usrdata;
+	if (im.data) {
+		// Mat tmp = add(im, pos);  // BUG: 未回调时im不存在，调用add报错
+		Mat tmp = im.clone();
+		tmp += pos;
+		imshow("trackImage", tmp);
+	}
+};
+
+void iMat::trackAdd(Mat &img, int max_value) {
+	namedWindow("trackImage", WINDOW_AUTOSIZE);
+	int current_value = 0;
+	imshow("trackImage", img);
+	createTrackbar("light:", "trackImage", &current_value, max_value, callBack, &img);
+}
