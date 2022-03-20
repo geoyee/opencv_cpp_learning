@@ -51,8 +51,7 @@ Mat iMat::ergodicInv2(Mat& img) {
 		uchar* current_row = im.ptr<uchar>(row);
 		for (int col = 0; col < W; col++) {
 			if (C == 1) {
-				int current_pix = *current_row;
-				*current_row++ = 255 - current_pix;
+				*current_row++ = 255 - *current_row;
 			}
 			if (C == 3) {
 				for (int i = 0; i < 3; i++) {
