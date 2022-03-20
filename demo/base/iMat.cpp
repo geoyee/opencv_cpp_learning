@@ -4,7 +4,7 @@
 using namespace std;
 
 
-Mat iMat::copy(Mat &img) {
+Mat iMat::iCopy(Mat &img) {
 	return img.clone();
 }
 
@@ -22,7 +22,7 @@ void iMat::showInfo(Mat &img) {
 
 
 Mat iMat::ergodicInv(Mat &img) {
-	Mat im = copy(img);
+	Mat im = iCopy(img);
 	int H = img.rows;
 	int W = img.cols;
 	int C = img.channels();
@@ -43,7 +43,7 @@ Mat iMat::ergodicInv(Mat &img) {
 
 
 Mat iMat::ergodicInv2(Mat& img) {
-	Mat im = copy(img);
+	Mat im = iCopy(img);
 	int H = img.rows;
 	int W = img.cols;
 	int C = img.channels();
@@ -65,18 +65,17 @@ Mat iMat::ergodicInv2(Mat& img) {
 }
 
 
-Mat iMat::add(Mat &img, int value) {
-	 Mat im = copy(img);
+Mat iMat::iAdd(Mat &img, int value) {
+	 Mat im = iCopy(img);
 	 return im + value;
 }
 
 
 static void callBack(int pos, void* usrdata) {
+	iMat m;
 	Mat im = *(Mat*)usrdata;
 	if (im.data) {
-		// Mat tmp = add(im, pos);  // BUG: 未回调时im不存在，调用add报错
-		Mat tmp = im.clone();
-		tmp += pos;
+		Mat tmp = m.iAdd(im, pos);
 		imshow("trackImage", tmp);
 	}
 };

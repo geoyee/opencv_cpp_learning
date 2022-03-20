@@ -1,4 +1,4 @@
-#include "iconvert.h"
+#include "iConvert.h"
 
 
 Mat iConverter::toGray(Mat &img) {
