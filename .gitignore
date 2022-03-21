@@ -31,9 +31,6 @@
 *.out
 *.app
 
-# setting
-OpenCV4.props
-
 # debug
 demo/**/x64/Debug/
 demo/**/.vs/

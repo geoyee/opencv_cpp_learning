@@ -11,5 +11,6 @@ class iMat {
 		Mat ergodicInv(Mat &img);
 		Mat ergodicInv2(Mat &img);
 		Mat iAdd(Mat &img, int value);
-		void trackAdd(Mat &img, int value=100);
+		Mat iMul(Mat &img, double value);
+		void trackAdd(Mat &img, int max_alpha=100, int max_beta=100);
 };

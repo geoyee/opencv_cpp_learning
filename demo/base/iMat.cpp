@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 #include "iMat.h"
 
 using namespace std;
@@ -42,7 +43,7 @@ Mat iMat::ergodicInv(Mat &img) {
 }
 
 
-Mat iMat::ergodicInv2(Mat& img) {
+Mat iMat::ergodicInv2(Mat &img) {
 	Mat im = iCopy(img);
 	int H = img.rows;
 	int W = img.cols;
@@ -65,23 +66,47 @@ Mat iMat::ergodicInv2(Mat& img) {
 
 
 Mat iMat::iAdd(Mat &img, int value) {
-	 Mat im = iCopy(img);
-	 return im + value;
+	Mat im = iCopy(img);
+	return im + value;
 }
 
 
-static void callBack(int pos, void* usrdata) {
+Mat iMat::iMul(Mat &img, double value) {
+	Mat im = iCopy(img);
+	im *= value;
+	im.convertTo(im, CV_8U);
+	return im;
+}
+
+
+static void contrastCallBack(int pos, void* usrdata) {
 	iMat m;
 	Mat im = *(Mat*)usrdata;
 	if (im.data) {
-		Mat tmp = m.iAdd(im, pos);
+		double alpha = ((double)pos / 250 + 0.8);  // 0.8 - 1.2
+		Mat tmp = m.iMul(im, alpha);
 		imshow("trackImage", tmp);
+		// memcpy(usrdata, (void*)(&tmp), sizeof(Mat));
 	}
 };
 
-void iMat::trackAdd(Mat &img, int max_value) {
+static void lightCallBack(int pos, void* usrdata) {
+	iMat m;
+	Mat im = *(Mat*)usrdata;
+	if (im.data) {
+		int beta = pos - 50;  // -50 - 50
+		Mat tmp = m.iAdd(im, beta);
+		imshow("trackImage", tmp);
+		// memcpy(usrdata, (void*)(&tmp), sizeof(Mat));
+	}
+};
+
+void iMat::trackAdd(Mat &img, int max_alpha, int max_beta) {
 	namedWindow("trackImage", WINDOW_AUTOSIZE);
-	int current_value = 0;
-	imshow("trackImage", img);
-	createTrackbar("light:", "trackImage", &current_value, max_value, callBack, &img);
+	int current_alpha = 50;
+	int current_beta = 50;
+	// imshow("trackImage", img);
+	// FIXME: 如何不使用全局变量使下面两个操作的结果对应同一张图
+	createTrackbar("contrast:", "trackImage", &current_alpha, max_alpha, contrastCallBack, &img);
+	createTrackbar("light:", "trackImage", &current_beta, max_beta, lightCallBack, &img);
 }
