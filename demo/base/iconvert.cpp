@@ -63,7 +63,7 @@ void iConverter::colorShow(Mat &img) {
 }
 
 
-void iConverter::keyConverter(Mat& img) {
+void iConverter::keyConverter(Mat &img) {
 	iMat m;
 	Mat c_img = img;
 	while (true)
@@ -92,4 +92,24 @@ void iConverter::keyConverter(Mat& img) {
 		}
 		imshow("Converter", c_img);
 	}
+}
+
+
+Mat iConverter::splitAndMerge(Mat &img) {
+	Mat dst;
+	vector<Mat> chans;
+	split(img, chans);
+	chans[0] = chans[1];
+	merge(chans, dst);
+	int fromTo[] = { 0, 1, 1, 2, 2, 0 };
+	mixChannels(&img, 1, &dst, 1, fromTo, 3);
+	return dst;
+}
+
+
+Mat iConverter::inRangGreen(Mat &img) {
+	Mat hsv = toHSV(img);
+	Mat mask;
+	inRange(hsv, Scalar(35, 43, 46), Scalar(77, 255, 255), mask);
+	return mask;
 }

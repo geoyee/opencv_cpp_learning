@@ -24,12 +24,18 @@
     <ClCompile Include="iMat.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="iTrack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="iConvert.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="iMat.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="iTrack.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

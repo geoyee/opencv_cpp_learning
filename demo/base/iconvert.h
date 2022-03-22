@@ -7,6 +7,8 @@ class iConverter {
 	public:
 		Mat toGray(Mat &img);
 		Mat toHSV(Mat &img);
-		void colorShow(Mat& img);
+		void colorShow(Mat &img);
 		void keyConverter(Mat &img);
+		Mat splitAndMerge(Mat &img);
+		Mat inRangGreen(Mat &img);
 };
