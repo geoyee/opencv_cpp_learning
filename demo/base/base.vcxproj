@@ -141,13 +141,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="iConvert.cpp" />
+    <ClCompile Include="iDraw.cpp" />
     <ClCompile Include="iMat.cpp" />
+    <ClCompile Include="iROI.cpp" />
     <ClCompile Include="iTrack.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="iConvert.h" />
+    <ClInclude Include="iDraw.h" />
     <ClInclude Include="iMat.h" />
+    <ClInclude Include="iROI.h" />
     <ClInclude Include="iTrack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
