@@ -1,5 +1,0 @@
-*.cpp linguist-language=cpp
-*.h linguist-language=cpp
-*.vcxproj linguist-language=cpp
-*.vcxproj.filters linguist-language=cpp
-*.vcxproj.user linguist-language=cpp

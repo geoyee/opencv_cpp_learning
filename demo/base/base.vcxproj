@@ -145,6 +145,7 @@
     <ClCompile Include="iMat.cpp" />
     <ClCompile Include="iROI.cpp" />
     <ClCompile Include="iTrack.cpp" />
+    <ClCompile Include="iTransform.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +154,7 @@
     <ClInclude Include="iMat.h" />
     <ClInclude Include="iROI.h" />
     <ClInclude Include="iTrack.h" />
+    <ClInclude Include="iTransform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
