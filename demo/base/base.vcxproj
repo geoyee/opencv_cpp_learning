@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="iConvert.cpp" />
     <ClCompile Include="iDraw.cpp" />
+    <ClCompile Include="iHist.cpp" />
     <ClCompile Include="iMat.cpp" />
     <ClCompile Include="iROI.cpp" />
     <ClCompile Include="iTrack.cpp" />
@@ -151,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="iConvert.h" />
     <ClInclude Include="iDraw.h" />
+    <ClInclude Include="iHist.h" />
     <ClInclude Include="iMat.h" />
     <ClInclude Include="iROI.h" />
     <ClInclude Include="iTrack.h" />

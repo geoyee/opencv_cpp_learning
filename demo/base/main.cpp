@@ -5,7 +5,8 @@
 // #include "iTrack.h"
 // #include "iDraw.h"
 // #include "iROI.h"
-#include "iTransform.h"
+// #include "iTransform.h"
+#include "iHist.h"
 
 using namespace std;
 using namespace cv;
@@ -13,15 +14,11 @@ using namespace cv;
 
 int main(int argc, char** argv) {
 	printf("-- IN --\n");
-	iTransform trans;
+	iHist ih;
 	Mat img = imread("E:/dataFiles/github/opencv_cpp_learning/assets/RS/00GOQ3IKOT.jpg");
-	Mat img_normal = trans.iNormal(img);
-	imshow("NORMAL", img_normal);
-	// vector<Mat> r_imgs = trans.iResize(img);
-	// imshow("ZOOMIN", r_imgs[0]);
-	// imshow("ZOOMOUT", r_imgs[1]);
-	Mat ro_img = trans.iRotate(img, 37, true);
-	imshow("ROTATE", ro_img);
+	Mat img_eq_hist = ih.histEQ(img);
+	imshow("IMG", img);
+	imshow("EQHIST", img_eq_hist);
 	waitKey(0);
 	destroyAllWindows();
 	return 0;
