@@ -141,6 +141,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="iConvert.cpp" />
+    <ClCompile Include="iDeepFace.cpp" />
     <ClCompile Include="iDraw.cpp" />
     <ClCompile Include="iHist.cpp" />
     <ClCompile Include="iMat.cpp" />
@@ -151,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="iConvert.h" />
+    <ClInclude Include="iDeepFace.h" />
     <ClInclude Include="iDraw.h" />
     <ClInclude Include="iHist.h" />
     <ClInclude Include="iMat.h" />

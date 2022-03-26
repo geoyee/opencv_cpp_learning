@@ -58,3 +58,24 @@ Mat iTransform::iRotate(Mat &img, double ang, bool keep) {
 	}
 	return ro_im;
 }
+
+
+Mat iTransform::iBlur(Mat& img, Size ksize) {
+	Mat im;
+	blur(img, im, ksize);
+	return im;
+}
+
+
+Mat iTransform::iGaussBlur(Mat& img, Size ksize) {
+	Mat im;
+	GaussianBlur(img, im, ksize, 3);
+	return im;
+}
+
+
+Mat iTransform::iBiFilter(Mat& img, int kd) {
+	Mat im;
+	bilateralFilter(img, im, kd, 127, 10);
+	return im;
+}

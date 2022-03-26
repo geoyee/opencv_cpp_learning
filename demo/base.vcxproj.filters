@@ -39,6 +39,9 @@
     <ClCompile Include="iHist.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="iDeepFace.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="iConvert.h">
@@ -60,6 +63,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="iHist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="iDeepFace.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
